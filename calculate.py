@@ -1,9 +1,26 @@
+# visit this link for more
+# https://www.aleksandrhovhannisyan.com/blog/fluid-type-scale-with-css-clamp/
+
 def calculate(maxF,minF,maxB,minB):
+    
+    # m for the viewport width
+    # b for the constant added to m
+    
     m = (maxF - minF) / (maxB - minB)
     b = minF - (m * minB)
-    print(m*maxB + b)
-    print(round(m*100,2),round(b,2))
+    
+    print(m)
+    #checking if correct result
+    #note use result that have not been converted
+    print('Correct for min: ',m*minB+b == minF)
+    print('Correct for max: ',m*maxB+b == maxF)
+    
 
+    b = round(b,2)
+    m = round(m*100,2)
+
+    # print integer value
+    print("clamp(%dpx, %svw + %dpx, %dpx)" % (minF,m,b,maxF))
+    
 #max font, min font, max Breakpoint, minimum breakpoint
-#calculate(19,16,1000,400)
-calculate(47,19,1440,375)
+calculate(17,10,1440,375)
