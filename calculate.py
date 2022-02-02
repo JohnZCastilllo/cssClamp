@@ -9,18 +9,16 @@ def calculate(maxF,minF,maxB,minB):
     m = (maxF - minF) / (maxB - minB)
     b = minF - (m * minB)
     
-    print(m)
     #checking if correct result
-    #note use result that have not been converted
     print('Correct for min: ',m*minB+b == minF)
     print('Correct for max: ',m*maxB+b == maxF)
     
-
-    b = round(b,2)
-    m = round(m*100,2)
+    # * 100 to convert to vw (according to the link above)
+    m = round(m*100)
 
     # print integer value
     print("clamp(%dpx, %svw + %dpx, %dpx)" % (minF,m,b,maxF))
     
 #max font, min font, max Breakpoint, minimum breakpoint
-calculate(17,10,1440,375)
+calculate(38,17,1440,375)
+
